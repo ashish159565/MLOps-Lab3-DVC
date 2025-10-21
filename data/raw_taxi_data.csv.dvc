@@ -1,0 +1,5 @@
+outs:
+- md5: e9f934d5cafae0a12a00174daccb1f93
+  size: 261410655
+  hash: md5
+  path: raw_taxi_data.csv
