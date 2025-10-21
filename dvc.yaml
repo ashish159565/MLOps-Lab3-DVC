@@ -1,0 +1,8 @@
+stages:
+  preprocess:
+    cmd: python preprocess_taxi.py
+    deps:
+    - data/raw_taxi_data.csv
+    - preprocess_taxi.py
+    outs:
+    - data/cleaned_taxi_data.csv
