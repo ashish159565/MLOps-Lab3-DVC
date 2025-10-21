@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python preprocess_taxi.py
+    deps:
+    - path: data/raw_taxi_data.csv
+      hash: md5
+      md5: e9f934d5cafae0a12a00174daccb1f93
+      size: 261410655
+    - path: preprocess_taxi.py
+      hash: md5
+      md5: d57b7749b72f0f8708e77101a66fd7ef
+      size: 429
+    outs:
+    - path: data/cleaned_taxi_data.csv
+      hash: md5
+      md5: 9dd0b59374f1e5f26a8b353cf92e9793
+      size: 140491959
+  train_model:
+    cmd: python train_taxi_model.py
+    deps:
+    - path: data/cleaned_taxi_data.csv
+      hash: md5
+      md5: 9dd0b59374f1e5f26a8b353cf92e9793
+      size: 140491959
+    - path: train_taxi_model.py
+      hash: md5
+      md5: f4bf3adf808d92d1e04ca347fc465406
+      size: 885
+    outs:
+    - path: taxi_metrics.json
+      hash: md5
+      md5: d63c2af678f06df1f97d5013329a615b
+      size: 33
+    - path: taxi_model.pkl
+      hash: md5
+      md5: 62e12e9834d569838f4845c2c5450497
+      size: 880
