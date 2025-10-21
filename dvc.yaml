@@ -6,3 +6,13 @@ stages:
     - preprocess_taxi.py
     outs:
     - data/cleaned_taxi_data.csv
+  train_model:
+    cmd: python train_taxi_model.py
+    deps:
+    - data/cleaned_taxi_data.csv
+    - train_taxi_model.py
+    outs:
+    - taxi_model.pkl
+    metrics:
+    - taxi_metrics.json:
+        cache: false
